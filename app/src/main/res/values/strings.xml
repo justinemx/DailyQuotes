@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Daily Quotes</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="favorites">Favorites</string>
+    <string name="quote_of_the_day">QUOTE OF THE DAY</string>
+    <string name="change">Change</string>
+    <string name="education">Education</string>
+    <string name="faith">Faith</string>
+    <string name="family">Family</string>
+    <string name="friendship">Friendship</string>
+    <string name="funny">Funny</string>
+    <string name="happiness">Happiness</string>
+    <string name="inspirational">Inspirational</string>
+    <string name="intelligence">Intelligence</string>
+    <string name="knowledge">Knowledge</string>
+    <string name="life">Life</string>
+    <string name="love">love</string>
+    <string name="morning">Morning</string>
+    <string name="success">Success</string>
+</resources>

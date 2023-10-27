@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".quote_categories">
+
+    <!-- Quote of the Day (Top) -->
+    <!-- ScrollView for Categories -->
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/button_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="24dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginTop="24dp"
+            android:orientation="vertical"
+            android:weightSum="11">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/quote_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/quote"
+                />
+
+            <TextView
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/quote_of_the_day"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:id="@+id/quote_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:textAlignment="textStart"
+                    android:textStyle="italic"
+                    android:text="“"
+                    android:textSize="80sp"
+                    android:layout_weight="0.5"/>
+
+                <TextView
+                    android:id="@+id/quoteOfTheDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|start"
+                    android:textStyle="italic"
+                    android:text=""
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:textSize="0sp"
+                    android:layout_weight="1.5"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:textAlignment="textEnd"
+                    android:textStyle="italic"
+                    android:layout_marginTop="-10dp"
+                    android:text="” "
+                    android:textSize="80sp"
+                    android:layout_weight="0.5"/>
+
+                <TextView
+                    android:id="@+id/authorOfTheDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text=""
+                    android:textSize="18sp"
+                    android:layout_weight="1"/>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Material3.Button.IconButton"
+                    android:id="@+id/down_button"
+                    app:iconGravity="textEnd"
+                    app:iconSize="15dp"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="0.5"
+                    android:layout_marginBottom="30dp"
+                    app:icon="@drawable/arrow_down"/>
+
+
+
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:id="@+id/change_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:textSize="20sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/change"
+                    app:iconPadding="10dp"
+                    app:icon="@drawable/change"/>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:id="@+id/education_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:textSize="20sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/education"
+                    app:iconPadding="10dp"
+                    app:icon="@drawable/education"/>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:id="@+id/faith_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:textSize="20sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/faith"
+                    app:iconPadding="10dp"
+                    app:icon="@drawable/faith"/>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:id="@+id/family_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:textSize="20sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/family"
+                    app:iconPadding="10dp"
+                    app:icon="@drawable/family"/>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:id="@+id/friendship_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:textSize="20sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/friendship"
+                    app:iconPadding="10dp"
+                    app:icon="@drawable/friendship"/>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:id="@+id/funny_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:textSize="20sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/funny"
+                    app:iconPadding="10dp"
+                    app:icon="@drawable/funny"/>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:id="@+id/happiness_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:textSize="20sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/happiness"
+                    app:iconPadding="10dp"
+                    app:icon="@drawable/happiness"/>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:id="@+id/inspirational_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:textSize="20sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/inspirational"
+                    app:iconPadding="10dp"
+                    app:icon="@drawable/inspirational"/>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:id="@+id/intelligence_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:textSize="20sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/intelligence"
+                    app:iconPadding="10dp"
+                    app:icon="@drawable/intelligence"/>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:id="@+id/knowledge_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:textSize="20sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/knowledge"
+                    app:iconPadding="10dp"
+                    app:icon="@drawable/knowledge"/>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:id="@+id/life_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:textSize="20sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/life"
+                    app:iconPadding="10dp"
+                    app:icon="@drawable/life"/>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:id="@+id/love_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:textSize="20sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/love"
+                    app:iconPadding="10dp"
+                    app:icon="@drawable/love"/>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:id="@+id/morning_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:textSize="20sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/morning"
+                    app:iconPadding="10dp"
+                    app:icon="@drawable/morning"/>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:id="@+id/success_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:textSize="20sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/success"
+                    app:iconPadding="10dp"
+                    app:icon="@drawable/success"/>
+
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/favorites_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:textSize="20sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="60dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/favorites"
+                    app:iconPadding="10dp"
+                    app:icon="@drawable/star_filled"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

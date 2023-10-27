@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/quote_categories">
+    <fragment
+        android:id="@+id/quote_categories"
+        android:name="com.mooncode.dailyquotes.quote_categories"
+        android:label="fragment_quote_categories"
+        tools:layout="@layout/fragment_quote_categories" >
+        <action
+            android:id="@+id/action_quote_categories_to_quote"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:destination="@id/quote" />
+    </fragment>
+    <fragment
+        android:id="@+id/quote"
+        android:name="com.mooncode.dailyquotes.quote"
+        android:label="fragment_quote"
+        tools:layout="@layout/fragment_quote" >
+        <action
+            android:id="@+id/action_quote_to_quote_categories"
+            app:exitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:destination="@id/quote_categories" />
+    </fragment>
+</navigation>

@@ -1,0 +1,111 @@
+import android.app.Activity
+import android.content.Context
+import android.content.SharedPreferences
+import android.util.Log
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import org.json.JSONArray
+import org.json.JSONObject
+import java.io.BufferedReader
+import java.io.InputStreamReader
+import java.net.HttpURLConnection
+import java.net.URL
+
+class QuotesManager(private val activity: Activity) {
+    private var api_key: String? = "Y0LNR9RITDIc5E38/7qyKA==xTWNJzmsuP2jhTVE"
+    private var api_url: String? = "https://api.api-ninjas.com/v1/quotes"
+    private var dict_quotes: MutableMap<String, MutableList<Quote>> = mutableMapOf()
+    private var context = activity.applicationContext
+    private val sharedPreferences: SharedPreferences = context.getSharedPreferences("MyQuotesPrefs", Context.MODE_PRIVATE)
+
+
+    init {
+        val categories = listOf(
+            "change", "education", "faith", "family", "friendship", "funny", "happiness", "inspirational", "intelligence", "knowledge", "life", "love", "morning", "success"
+        )
+
+        // Make 15 API requests and populate the dictionary
+        var i = 0
+        while(i < categories.size) {
+            val category = categories[i]
+            val url = URL("$api_url?category=$category&limit=10")
+            val urlConnection = url.openConnection() as HttpURLConnection
+            urlConnection.setRequestProperty("X-Api-Key", api_key)
+
+            try {
+                val responseCode = urlConnection.responseCode
+                if (responseCode == HttpURLConnection.HTTP_OK) {
+                    val inputStream = urlConnection.inputStream
+                    val reader = BufferedReader(InputStreamReader(inputStream))
+                    val jsonString = reader.readText()
+
+                    dict_quotes[category] = parseJsonResponse(jsonString)
+                } else {
+                    MaterialAlertDialogBuilder(activity)
+                        .setTitle("Error")
+                        .setMessage("API request failed with response code $responseCode")
+                        .setNegativeButton("Leave") { dialog, which ->
+                            activity.finishAndRemoveTask()
+                        }
+                        .setPositiveButton("Retry") { dialog, which ->
+                            dialog.dismiss()
+
+                        }
+                        .show()
+                }
+                i += 1
+            } catch (e: Exception) {
+                MaterialAlertDialogBuilder(activity)
+                    .setTitle("Error")
+                    .setMessage("API request failed with exception $e")
+                    .setNegativeButton("Leave") { dialog, which ->
+                        activity.finishAndRemoveTask()
+                    }
+                    .setPositiveButton("Retry") { dialog, which ->
+                        dialog.dismiss()
+                    }
+                    .show()
+            } finally {
+                urlConnection.disconnect()
+            }
+        }
+    }
+
+    private fun parseJsonResponse(jsonString: String): MutableList<Quote> {
+        val quotes = mutableListOf<Quote>()
+        val jsonArray = JSONArray(jsonString)
+        for (i in 0 until jsonArray.length()) {
+            val jsonObject = jsonArray.getJSONObject(i)
+            quotes.add(
+                Quote(
+                    jsonObject.getString("quote"),
+                    jsonObject.getString("author"),
+                    jsonObject.getString("category"))
+            )
+        }
+        return quotes
+    }
+
+    fun getQuote(category: String): Quote {
+        val quotes = dict_quotes[category]
+        val randomIndex = (0 until quotes!!.size).random()
+        return quotes[randomIndex]
+    }
+
+    fun saveQuotes() {
+
+    }
+
+}
+
+
+class Quote(q: String, a: String, c: String) {
+    val quote: String
+    val author: String
+    val category: String
+
+    init {
+        quote = q
+        author = a
+        category = c
+    }
+}
